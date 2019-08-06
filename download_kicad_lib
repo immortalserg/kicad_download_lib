@@ -12,21 +12,16 @@ git clone https://github.com/KiCad/kicad-footprints.git kicad/modules
 git clone https://github.com/KiCad/kicad-packages3D.git kicad/packages3D
 git clone https://github.com/KiCad/kicad-templates.git kicad/templates
 git clone https://github.com/KiCad/kicad-i18n.git kicad/i18n
-
 # библиотеки SparkFun
 git clone https://github.com/sparkfun/SparkFun-KiCad-Libraries.git unofficial/sparkfun
-
 # библиотеки ГОСТ
 git clone https://github.com/faa00/KiCAD_GOST_library.git unofficial/gost
-
 # большая сборка библиотек с сайта http://smisioto.no-ip.org/elettronica/kicad/kicad-en.htm
 git clone git://smisioto.eu/kicad_libs.git unofficial/smisiot
 # делаем симлинк на 3d модели для smisioto
 ln -s $DIR/unofficial/smisioto/modules/packages3d/walter $DIR/kicad/packages3D/walter
-
 # библиотеки DiGiKey
 git clone https://github.com/Digi-Key/digikey-kicad-library.git unofficial/digikey
-
 # AB tech
 git clone https://github.com/ab2tech/KiCad.git unofficial/ab2tech
 # создание симлинков на 3D модели
@@ -37,7 +32,6 @@ for f in $DIR/unofficial/ab2tech/3d_models/*; do
      ln -s $f $DIR/kicad/packages3D/$dd
   fi
 done
-
 # другие библиотеки
 git clone https://github.com/jdunmire/kicad-ESP8266.git unofficial/dunmire
 git clone https://github.com/XenGi/teensy_library.git unofficial/xengi/teensy_library
@@ -48,7 +42,6 @@ git clone https://github.com/savenlid/kicad.git unofficial/savenlid
 mkdir $DIR/kicad/packages3D/C:
 mkdir $DIR/kicad/packages3D/C:/Cad
 ln -s $DIR/unofficial/savenlid/footprints $DIR/kicad/packages3D/C:/Cad/Footprint
-
 git clone https://github.com/4ms/4ms-kicad-lib.git unofficial/4ms
 # делаем симлинк, должно работать, но почему то не работает
 mkdir $DIR/kicad/packages3D/Users
@@ -57,12 +50,18 @@ mkdir $DIR/kicad/packages3D/Users/design/Google\ Drive
 mkdir $DIR/kicad/packages3D/Users/design/Google\ Drive/4ms
 mkdir $DIR/kicad/packages3D/Users/design/Google\ Drive/4ms/kicad
 ln -s $DIR/unofficial/4ms/packages3d $DIR/kicad/packages3D/Users/design/Google\ Drive/4ms/kicad/packages3d
-
-
 git clone https://github.com/ContextualElectronics/CE_KiCadLib.git unofficial/ce/CE_KiCadLib
 # ВНИМАНИЕ!!! для использования в проектах 3D моделей этой сборки надо симлинк сделать из папки проекта командой
 # DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" | ln -s $DIR/unofficial/ce/CE_KiCadLib CE_KiCadLib
 git clone https://github.com/ContextualElectronics/kicad-library.git unofficial/ce/kicad-library
+
+
+
+
+# библиотеки Elessar Cuthalion
+git clone https://github.com/ElessarCuthalion/KiCAD_library.git unofficial/elessar
+
+
 
 
 # конфигурация KiCad
@@ -70,7 +69,6 @@ git clone https://github.com/ContextualElectronics/kicad-library.git unofficial/
 cp ~/.config/kicad/kicad_common ~/.config/kicad/kicad_common.backup
 cp ~/.config/kicad/fp-lib-table ~/.config/kicad/fp-lib-table.backup
 cp ~/.config/kicad/sym-lib-table ~/.config/kicad/sym-lib-table.backup
-
 # создаем файл конфигурации с путями
 tee ~/.config/kicad/kicad_common << EOF
 UseIconsInMenus=1
@@ -491,6 +489,26 @@ tee ~/.config/kicad/fp-lib-table << EOF
   (lib (name CE_Logo)(type KiCad)(uri \${UNOFFICIAL}/ce/CE_KiCadLib/Footprint/CE_Logo.pretty)(options "")(descr ""))
   (lib (name CE_Resistor)(type KiCad)(uri \${UNOFFICIAL}/ce/CE_KiCadLib/Footprint/CE_Resistor.pretty)(options "")(descr ""))
   (lib (name CE_Switch)(type KiCad)(uri \${UNOFFICIAL}/ce/CE_KiCadLib/Footprint/CE_Switch.pretty)(options "")(descr ""))
+  (lib (name Buttons_Switches)(type KiCad)(uri \${UNOFFICIAL}/elessar/Buttons_Switches.pretty)(options "")(descr ""))
+  (lib (name Capacitors2)(type KiCad)(uri \${UNOFFICIAL}/elessar/Capacitors.pretty)(options "")(descr ""))
+  (lib (name Connectors3)(type KiCad)(uri \${UNOFFICIAL}/elessar/Connectors.pretty)(options "")(descr ""))
+  (lib (name Diodes2)(type KiCad)(uri \${UNOFFICIAL}/elessar/Diodes.pretty)(options "")(descr ""))
+  (lib (name Display2)(type KiCad)(uri \${UNOFFICIAL}/elessar/Display.pretty)(options "")(descr ""))
+  (lib (name Graphics)(type KiCad)(uri \${UNOFFICIAL}/elessar/Graphics.pretty)(options "")(descr ""))
+  (lib (name Inductors)(type KiCad)(uri \${UNOFFICIAL}/elessar/Inductors.pretty)(options "")(descr ""))
+  (lib (name Installation)(type KiCad)(uri \${UNOFFICIAL}/elessar/Installation.pretty)(options "")(descr ""))
+  (lib (name LEDs)(type KiCad)(uri \${UNOFFICIAL}/elessar/LEDs.pretty)(options "")(descr ""))
+  (lib (name LQFP_TQFP)(type KiCad)(uri \${UNOFFICIAL}/elessar/LQFP_TQFP.pretty)(options "")(descr ""))
+  (lib (name Modules)(type KiCad)(uri \${UNOFFICIAL}/elessar/Modules.pretty)(options "")(descr ""))
+  (lib (name PCB_details)(type KiCad)(uri \${UNOFFICIAL}/elessar/PCB_details.pretty)(options "")(descr ""))
+  (lib (name Power)(type KiCad)(uri \${UNOFFICIAL}/elessar/Power.pretty)(options "")(descr ""))
+  (lib (name QFN_DFN_LGA)(type KiCad)(uri \${UNOFFICIAL}/elessar/QFN_DFN_LGA.pretty)(options "")(descr ""))
+  (lib (name Quartz)(type KiCad)(uri \${UNOFFICIAL}/elessar/Quartz.pretty)(options "")(descr ""))
+  (lib (name Radio)(type KiCad)(uri \${UNOFFICIAL}/elessar/Radio.pretty)(options "")(descr ""))
+  (lib (name Relays)(type KiCad)(uri \${UNOFFICIAL}/elessar/Relays.pretty)(options "")(descr ""))
+  (lib (name Resistors2)(type KiCad)(uri \${UNOFFICIAL}/elessar/Resistors.pretty)(options "")(descr ""))
+  (lib (name SOP_MSOP_TSSOP)(type KiCad)(uri \${UNOFFICIAL}/elessar/SOP_MSOP_TSSOP.pretty)(options "")(descr ""))
+  (lib (name SOT2)(type KiCad)(uri \${UNOFFICIAL}/elessar/SOT.pretty)(options "")(descr ""))
 )
 EOF
 
@@ -1155,5 +1173,36 @@ tee ~/.config/kicad/sym-lib-table << EOF
   (lib (name Xicor)(type Legacy)(uri \${UNOFFICIAL}/ce/kicad-library/library/Xicor.lib)(options "")(descr ""))
   (lib (name xilinx)(type Legacy)(uri \${UNOFFICIAL}/ce/kicad-library/library/xilinx.lib)(options "")(descr ""))
   (lib (name Zilog)(type Legacy)(uri \${UNOFFICIAL}/ce/kicad-library/library/Zilog.lib)(options "")(descr ""))
+  (lib (name Audio2)(type Legacy)(uri \${UNOFFICIAL}/elessar/Audio.lib)(options "")(descr ""))
+  (lib (name Capacitors)(type Legacy)(uri \${UNOFFICIAL}/elessar/Capacitors.lib)(options "")(descr ""))
+  (lib (name Chargers)(type Legacy)(uri \${UNOFFICIAL}/elessar/Chargers.lib)(options "")(descr ""))
+  (lib (name Connectors2)(type Legacy)(uri \${UNOFFICIAL}/elessar/Connectors.lib)(options "")(descr ""))
+  (lib (name DC-DC)(type Legacy)(uri \${UNOFFICIAL}/elessar/DC-DC.lib)(options "")(descr ""))
+  (lib (name Diodes)(type Legacy)(uri \${UNOFFICIAL}/elessar/Diodes.lib)(options "")(descr ""))
+  (lib (name Display)(type Legacy)(uri \${UNOFFICIAL}/elessar/Display.lib)(options "")(descr ""))
+  (lib (name Drivers)(type Legacy)(uri \${UNOFFICIAL}/elessar/Drivers.lib)(options "")(descr ""))
+  (lib (name Graphics)(type Legacy)(uri \${UNOFFICIAL}/elessar/Graphics.lib)(options "")(descr ""))
+  (lib (name Inductors)(type Legacy)(uri \${UNOFFICIAL}/elessar/Inductors.lib)(options "")(descr ""))
+  (lib (name Interface2)(type Legacy)(uri \${UNOFFICIAL}/elessar/Interface.lib)(options "")(descr ""))
+  (lib (name LED2)(type Legacy)(uri \${UNOFFICIAL}/elessar/LED.lib)(options "")(descr ""))
+  (lib (name Logic)(type Legacy)(uri \${UNOFFICIAL}/elessar/Logic.lib)(options "")(descr ""))
+  (lib (name Memory)(type Legacy)(uri \${UNOFFICIAL}/elessar/Memory.lib)(options "")(descr ""))
+  (lib (name Modules)(type Legacy)(uri \${UNOFFICIAL}/elessar/Modules.lib)(options "")(descr ""))
+  (lib (name Motors)(type Legacy)(uri \${UNOFFICIAL}/elessar/Motors.lib)(options "")(descr ""))
+  (lib (name MSU)(type Legacy)(uri \${UNOFFICIAL}/elessar/MSU.lib)(options "")(descr ""))
+  (lib (name Opto)(type Legacy)(uri \${UNOFFICIAL}/elessar/Opto.lib)(options "")(descr ""))
+  (lib (name OU)(type Legacy)(uri \${UNOFFICIAL}/elessar/OU.lib)(options "")(descr ""))
+  (lib (name PCB_details)(type Legacy)(uri "\${UNOFFICIAL}/elessar/PCB details.lib")(options "")(descr ""))
+  (lib (name Power)(type Legacy)(uri \${UNOFFICIAL}/elessar/Power.lib)(options "")(descr ""))
+  (lib (name Protection)(type Legacy)(uri \${UNOFFICIAL}/elessar/Protection.lib)(options "")(descr ""))
+  (lib (name Quartz)(type Legacy)(uri \${UNOFFICIAL}/elessar/Quartz.lib)(options "")(descr ""))
+  (lib (name Radio)(type Legacy)(uri \${UNOFFICIAL}/elessar/Radio.lib)(options "")(descr ""))
+  (lib (name Regulators)(type Legacy)(uri \${UNOFFICIAL}/elessar/Regulators.lib)(options "")(descr ""))
+  (lib (name Relays)(type Legacy)(uri \${UNOFFICIAL}/elessar/Relays.lib)(options "")(descr ""))
+  (lib (name Resistors)(type Legacy)(uri \${UNOFFICIAL}/elessar/Resistors.lib)(options "")(descr ""))
+  (lib (name Sensors2)(type Legacy)(uri \${UNOFFICIAL}/elessar/Sensors.lib)(options "")(descr ""))
+  (lib (name Sound)(type Legacy)(uri \${UNOFFICIAL}/elessar/Sound.lib)(options "")(descr ""))
+  (lib (name Switches2)(type Legacy)(uri \${UNOFFICIAL}/elessar/Switches.lib)(options "")(descr ""))
+  (lib (name Transistors)(type Legacy)(uri \${UNOFFICIAL}/elessar/Transistors.lib)(options "")(descr ""))
 )
 EOF
