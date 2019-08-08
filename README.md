@@ -27,11 +27,18 @@ chmod +x download_kicad_lib
 
 - официальные KiCAD
 - AB2 Tech
-- Digikey
+- DiGiKey
 - Sparkfun
 - Библиотеки УГО по ГОСТ
 - Simisto 
+- Elessar Cuthalion
+- Contextual Electronics
+- Anton Donets
 
 ## Версии
 
-0.1 
+### 0.1.1 от 08.08.2019
+
+- добавлены библиотеки Anton Donets 
+
+### 0.1 

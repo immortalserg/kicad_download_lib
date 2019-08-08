@@ -53,15 +53,12 @@ ln -s $DIR/unofficial/4ms/packages3d $DIR/kicad/packages3D/Users/design/Google\ 
 git clone https://github.com/ContextualElectronics/CE_KiCadLib.git unofficial/ce/CE_KiCadLib
 # ВНИМАНИЕ!!! для использования в проектах 3D моделей этой сборки надо симлинк сделать из папки проекта командой
 # DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" | ln -s $DIR/unofficial/ce/CE_KiCadLib CE_KiCadLib
+# библиотеки Contextual Electronics
 git clone https://github.com/ContextualElectronics/kicad-library.git unofficial/ce/kicad-library
-
-
-
-
 # библиотеки Elessar Cuthalion
 git clone https://github.com/ElessarCuthalion/KiCAD_library.git unofficial/elessar
-
-
+# библиотеки Anton Donets
+git clone https://gitlab.com/Donets/kicad-base unofficial/donets
 
 
 # конфигурация KiCad
@@ -83,6 +80,7 @@ ShowEnvVarWarningDialog=1
 LanguageID=Russian
 [EnvironmentVariables]
 ESPLIB=$DIR/unofficial/dunmire
+KICAD_BASE=$DIR/unofficial/donets
 KICAD_SYMBOL_DIR=$DIR/kicad/library
 KICAD_TEMPLATE_DIR=$DIR/kicad/template
 KICAD_USER_TEMPLATE_DIR=~/kicad/template
@@ -509,6 +507,36 @@ tee ~/.config/kicad/fp-lib-table << EOF
   (lib (name Resistors2)(type KiCad)(uri \${UNOFFICIAL}/elessar/Resistors.pretty)(options "")(descr ""))
   (lib (name SOP_MSOP_TSSOP)(type KiCad)(uri \${UNOFFICIAL}/elessar/SOP_MSOP_TSSOP.pretty)(options "")(descr ""))
   (lib (name SOT2)(type KiCad)(uri \${UNOFFICIAL}/elessar/SOT.pretty)(options "")(descr ""))
+  (lib (name d_Battery_Holder)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Battery_Holder.pretty)(options "")(descr ""))
+  (lib (name d_Capacitors)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Capacitors.pretty)(options "")(descr ""))
+  (lib (name d_Capacitors_Tantalum)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Capacitors_Tantalum.pretty)(options "")(descr ""))
+  (lib (name d_Connector_Header)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Connector_Header.pretty)(options "")(descr ""))
+  (lib (name d_Connector_Other)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Connector_Other.pretty)(options "")(descr ""))
+  (lib (name d_Connector_RF)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Connector_RF.pretty)(options "")(descr ""))
+  (lib (name d_Connector_RJ2)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Connector_RJ.pretty)(options "")(descr ""))
+  (lib (name d_Connector_SIM)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Connector_SIM.pretty)(options "")(descr ""))
+  (lib (name d_Connector_TerminalBlock)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Connector_TerminalBlock.pretty)(options "")(descr ""))
+  (lib (name d_Crystal)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Crystal.pretty)(options "")(descr ""))
+  (lib (name d_Diodes)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Diodes.pretty)(options "")(descr ""))
+  (lib (name d_Fuse)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Fuse.pretty)(options "")(descr ""))
+  (lib (name d_Inductors)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Inductors.pretty)(options "")(descr ""))
+  (lib (name d_Jumper)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Jumper.pretty)(options "")(descr ""))
+  (lib (name d_LED_SMD)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/LED_SMD.pretty)(options "")(descr ""))
+  (lib (name d_Oscillator)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Oscillator.pretty)(options "")(descr ""))
+  (lib (name d_Package_DFN_QFN)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Package_DFN_QFN.pretty)(options "")(descr ""))
+  (lib (name d_Package_QFP)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Package_QFP.pretty)(options "")(descr ""))
+  (lib (name d_Package_SO)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Package_SO.pretty)(options "")(descr ""))
+  (lib (name d_Package_SOT)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Package_SOT.pretty)(options "")(descr ""))
+  (lib (name d_Package_TO)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Package_TO.ptetty)(options "")(descr ""))
+  (lib (name d_Power_Module)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Power_Module.pretty)(options "")(descr ""))
+  (lib (name d_Relay)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Relay.pretty)(options "")(descr ""))
+  (lib (name d_Resistors)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Resistors.pretty)(options "")(descr ""))
+  (lib (name d_RF_Antenna)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/RF_Antenna.pretty)(options "")(descr ""))
+  (lib (name d_RF_GSM)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/RF_GSM.pretty)(options "")(descr ""))
+  (lib (name d_RF_VCO)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/RF_VCO.pretty)(options "")(descr ""))
+  (lib (name d_Switch_SMD)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Switch_SMD.pretty)(options "")(descr ""))
+  (lib (name d_Switch_THD)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/Switch_THD.pretty)(options "")(descr ""))
+  (lib (name d_TestPoint)(type KiCad)(uri \${UNOFFICIAL}/donets/modules/TestPoint.pretty)(options "")(descr ""))
 )
 EOF
 
@@ -1204,5 +1232,66 @@ tee ~/.config/kicad/sym-lib-table << EOF
   (lib (name Sound)(type Legacy)(uri \${UNOFFICIAL}/elessar/Sound.lib)(options "")(descr ""))
   (lib (name Switches2)(type Legacy)(uri \${UNOFFICIAL}/elessar/Switches.lib)(options "")(descr ""))
   (lib (name Transistors)(type Legacy)(uri \${UNOFFICIAL}/elessar/Transistors.lib)(options "")(descr ""))
+  (lib (name "d_Amplifier_Audio")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Amplifier_Audio.lib")(options "")(descr ""))
+  (lib (name "d_Amplifier_Operational")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Amplifier_Operational.lib")(options "")(descr ""))
+  (lib (name "d_Battery_Holder")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Battery_Holder.lib")(options "")(descr ""))
+  (lib (name "d_Battery_Management")(type "Legacy")(uri "${UNOFFICIAL}/donets/library/Battery_Management.lib")(options "")(descr ""))
+  (lib (name "d_Capacitor_0402")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Capacitor_0402.lib")(options "")(descr ""))
+  (lib (name "d_Capacitor_0603")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Capacitor_0603.lib")(options "")(descr ""))
+  (lib (name "d_Capacitor_0805")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Capacitor_0805.lib")(options "")(descr ""))
+  (lib (name "d_Capacitor_1206")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Capacitor_1206.lib")(options "")(descr ""))
+  (lib (name "d_Capacitor_Tantalum")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Capacitor_Tantalum.lib")(options "")(descr ""))
+  (lib (name "d_Connector_Header")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Connector_Header.lib")(options "")(descr ""))
+  (lib (name "d_Connector_Other")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Connector_Other.lib")(options "")(descr ""))
+  (lib (name "d_Connector_RF")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Connector_RF.lib")(options "")(descr ""))
+  (lib (name "d_Connector_RJ")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Connector_RJ.lib")(options "")(descr ""))
+  (lib (name "d_Connector_SIM")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Connector_SIM.lib")(options "")(descr ""))
+  (lib (name "d_Connector_TerminalBlock")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Connector_TerminalBlock.lib")(options "")(descr ""))
+  (lib (name "d_Diode_Rectifier")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Diode_Rectifier.lib")(options "")(descr ""))
+  (lib (name "d_Diode_Shottky")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Diode_Shottky.lib")(options "")(descr ""))
+  (lib (name "d_Diode_TVS")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Diode_TVS.lib")(options "")(descr ""))
+  (lib (name "d_Diode_Zener")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Diode_Zener.lib")(options "")(descr ""))
+  (lib (name "d_DSP_AnalogDevices")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/DSP_AnalogDevices.lib")(options "")(descr ""))
+  (lib (name "d_FPGA_Xilinx")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/FPGA_Xilinx.lib")(options "")(descr ""))
+  (lib (name "d_Fuse_1206")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Fuse_1206.lib")(options "")(descr ""))
+  (lib (name "d_Inductor_0603")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Inductor_0603.lib")(options "")(descr ""))
+  (lib (name "d_Inductor_0805")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Inductor_0805.lib")(options "")(descr ""))
+  (lib (name "d_Inductor_Power")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Inductor_Power.lib")(options "")(descr ""))
+  (lib (name "d_Interface_Ethernet2")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Interface_Ethernet.lib")(options "")(descr ""))
+  (lib (name "d_Interface_LevelTranslator")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Interface_LevelTranslator.lib")(options "")(descr ""))
+  (lib (name "d_Interface_LineDriver2")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Interface_LineDriver.lib")(options "")(descr ""))
+  (lib (name "d_Interface_UART2")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Interface_UART.lib")(options "")(descr ""))
+  (lib (name "d_Jumper")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Jumper.lib")(options "")(descr ""))
+  (lib (name "d_LED_0603")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/LED_0603.lib")(options "")(descr ""))
+  (lib (name "d_Logic")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Logic.lib")(options "")(descr ""))
+  (lib (name "d_Memory_Flash2")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Memory_Flash.lib")(options "")(descr ""))
+  (lib (name "d_Microcontrollers")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Microcontrollers.lib")(options "")(descr ""))
+  (lib (name "d_Oscillator")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Oscillator.lib")(options "")(descr ""))
+  (lib (name "d_Power")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Power.lib")(options "")(descr ""))
+  (lib (name "d_Power_Module")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Power_Module.lib")(options "")(descr ""))
+  (lib (name "d_pspice3")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/pspice.lib")(options "")(descr ""))
+  (lib (name "d_Reference_Voltage2")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Reference_Voltage.lib")(options "")(descr ""))
+  (lib (name "d_Regulator_Linear2")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Regulator_Linear.lib")(options "")(descr ""))
+  (lib (name "d_Regulator_Switchmode")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Regulator_Switchmode.lib")(options "")(descr ""))
+  (lib (name "d_Relay")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Relay.lib")(options "")(descr ""))
+  (lib (name "d_Resistor_0402")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Resistor_0402.lib")(options "")(descr ""))
+  (lib (name "d_Resistor_0603")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Resistor_0603.lib")(options "")(descr ""))
+  (lib (name "d_Resistor_0805")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Resistor_0805.lib")(options "")(descr ""))
+  (lib (name "d_Resistor_1206")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Resistor_1206.lib")(options "")(descr ""))
+  (lib (name "d_Resistor_Var")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Resistor_Var.lib")(options "")(descr ""))
+  (lib (name "d_RF_AM_FM")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/RF_AM_FM.lib")(options "")(descr ""))
+  (lib (name "d_RF_Antenna")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/RF_Antenna.lib")(options "")(descr ""))
+  (lib (name "d_RF_Detector")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/RF_Detector.lib")(options "")(descr ""))
+  (lib (name "d_RF_GSM")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/RF_GSM.lib")(options "")(descr ""))
+  (lib (name "d_RF_RFID")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/RF_RFID.lib")(options "")(descr ""))
+  (lib (name "d_RF_SubGHz")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/RF_SubGHz.lib")(options "")(descr ""))
+  (lib (name "d_RF_Switch2")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/RF_Switch.lib")(options "")(descr ""))
+  (lib (name "d_RF_VCO")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/RF_VCO.lib")(options "")(descr ""))
+  (lib (name "d_Switch")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Switch.lib")(options "")(descr ""))
+  (lib (name "d_TestPoint")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/TestPoint.lib")(options "")(descr ""))
+  (lib (name "d_Transistor_NMOSFET")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Transistor_NMOSFET.lib")(options "")(descr ""))
+  (lib (name "d_Transistor_NPN")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Transistor_NPN.lib")(options "")(descr ""))
+  (lib (name "d_Transistor_PNP")(type "Legacy")(uri "\${UNOFFICIAL}/donets/library/Transistor_PNP.lib")(options "")(descr ""))
+
 )
 EOF
