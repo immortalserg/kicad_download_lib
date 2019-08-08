@@ -80,6 +80,7 @@ WorkingDir=/home/user
 ShowEnvVarWarningDialog=1
 LanguageID=Russian
 [EnvironmentVariables]
+DIPTRACE=/home/user/.wine/drive_c/Program Files (x86)/DipTrace
 ESPLIB=$DIR/unofficial/dunmire
 KICAD_BASE=$DIR/unofficial/donets
 KICAD_SYMBOL_DIR=$DIR/kicad/library
