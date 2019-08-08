@@ -63,9 +63,10 @@ git clone https://gitlab.com/Donets/kicad-base unofficial/donets
 
 # конфигурация KiCad
 # бэкапим существующую конфигурацию
-cp ~/.config/kicad/kicad_common ~/.config/kicad/kicad_common.backup
-cp ~/.config/kicad/fp-lib-table ~/.config/kicad/fp-lib-table.backup
-cp ~/.config/kicad/sym-lib-table ~/.config/kicad/sym-lib-table.backup
+NOW=$(date +"%Y-%d-%m_%T")
+cp ~/.config/kicad/kicad_common ~/.config/kicad/kicad_common.backup_$NOW
+cp ~/.config/kicad/fp-lib-table ~/.config/kicad/fp-lib-table.backup_$NOW
+cp ~/.config/kicad/sym-lib-table ~/.config/kicad/sym-lib-table.backup_$NOW
 # создаем файл конфигурации с путями
 tee ~/.config/kicad/kicad_common << EOF
 UseIconsInMenus=1
