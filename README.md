@@ -34,8 +34,15 @@ chmod +x download_kicad_lib
 - Elessar Cuthalion
 - Contextual Electronics
 - Anton Donets
+- Алексис Локвуд
+- Club Vaudois de Robotique Autonome
 
 ## Версии
+
+### 0.1.2 от 10.08.2019
+
+- добавлены библиотеки Алексис Локвуд, симлинки на 3d модели Simisto которые используются в библиотеках Алексис Локвуд
+- либы от Club Vaudois de Robotique Autonome (CVRA), работают не все 3d модели ибо линки на переменную проекта
 
 ### 0.1.1 от 08.08.2019
 
