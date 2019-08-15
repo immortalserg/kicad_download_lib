@@ -36,8 +36,14 @@ chmod +x download_kicad_lib
 - Anton Donets
 - Алексис Локвуд
 - Club Vaudois de Robotique Autonome
+- Benoit Frigon
 
 ## Версии
+
+### 0.1.3 от 15.08.2019
+
+- добавлены библиотеки Benoit Frigon
+- исправлены пути в конфиг. файлах
 
 ### 0.1.2 от 10.08.2019
 
