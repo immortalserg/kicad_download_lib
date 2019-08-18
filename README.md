@@ -37,8 +37,16 @@ chmod +x download_kicad_lib
 - Алексис Локвуд
 - Club Vaudois de Robotique Autonome
 - Benoit Frigon
+- MySensors
+- realthunder
 
 ## Версии
+
+### 0.1.4 от
+- добавлены библиотеки MySensors
+- добавлены библиотеки realthunder
+- исправлены пути к библиотекам
+- добавлен путь в конфиг
 
 ### 0.1.3 от 15.08.2019
 
